@@ -1,6 +1,6 @@
 # AI Capability Passport
 
-**The professional identity layer for AI-native engineers.**
+**The professional identity layer for engineers who build with AI.**
 
 GitHub shows what you've built.
 LinkedIn shows where you've worked.
@@ -9,6 +9,8 @@ AI Capability Passport shows how you build with AI.
 Generate a privacy-preserving profile from your AI engineering sessions using behavioral metadata — not prompts, source code, or proprietary data.
 
 Everything is extracted locally. Nothing sensitive ever leaves your machine.
+
+Works with Claude Code today, with support for additional AI development tools expanding over time.
 
 ```bash
 npx ai-passport
@@ -34,15 +36,13 @@ Meanwhile, AI engineering has become a real and differentiated skill. Developers
 
 Employers increasingly need better ways to understand how candidates actually work with AI. There is no standard signal.
 
-AI Capability Passport is that signal.
-
 ---
 
 ## What is AI Capability Passport?
 
 AI Capability Passport is a behavioral profile of your AI engineering practice.
 
-It reads the session logs that Claude Code, Codex CLI, and other AI development tools produce locally on your machine. It extracts only behavioral metadata — tool invocation patterns, session timing, token efficiency, workflow depth — and generates a structured capability profile from that data.
+It reads the session logs that Claude Code, Codex CLI, and other AI development tools produce locally on your machine. It extracts observable engineering behavior — tool invocation patterns, session timing, token efficiency, workflow depth — and generates a structured capability profile from that data.
 
 The profile captures verified engineering behavior across real sessions: how long you work, how efficiently you use context windows, how consistently you engage with agentic workflows, what your tool usage patterns look like over months of practice.
 
@@ -159,15 +159,13 @@ Verified behavioral signals change this.
 
 An engineer with 86% cache efficiency across 100+ sessions has demonstrably learned to structure AI collaboration efficiently. An engineer who invokes agentic workflow tools regularly is building at a different level of abstraction. Session depth, tool composition, and project breadth tell a coherent, evidence-backed story.
 
-Imagine job postings that say: *Include your GitHub profile and AI Passport.*
-
-That is where this is going.
+It's easy to imagine a future where job applications ask for a GitHub profile alongside an AI Passport.
 
 ---
 
 ## What Gets Measured
 
-All signals are derived from session metadata only. No content fields are accessed.
+All signals are derived from verifiable development patterns — session metadata only. No content fields are accessed.
 
 | Signal | Source | Confidence |
 |---|---|---|
@@ -324,7 +322,7 @@ That skill deserves a professional identity.
 
 ---
 
-AI Capability Passport is the professional identity layer for AI-native engineers — a verifiable, privacy-preserving record of how you actually work, not how you describe yourself.
+AI Capability Passport is the professional identity layer for engineers who build with AI — a verifiable, privacy-preserving record of how you actually work, not how you describe yourself.
 
 ---
 
