@@ -1,0 +1,24 @@
+name: Publish to npm
+
+on:
+  workflow_dispatch:  # manual trigger from GitHub UI
+  push:
+    tags:
+      - 'v*'          # auto-trigger on version tags like v0.1.0
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Publish ai-passport
+        run: npm publish --access public
+        working-directory: cli
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
