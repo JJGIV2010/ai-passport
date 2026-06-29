@@ -38,10 +38,10 @@ ANALYSIS GUIDELINES:
 10. Turns per session + duration → deep_work_capacity
 
 SCORING:
-- ai_engineering_score: weighted composite (cache efficiency 20%, session depth 20%,
-  agentic usage 15%, refactoring discipline 15%, project breadth 10%, model adoption 10%,
-  advisor usage 10%)
-- All sub-scores: defensible from the metrics, not aspirational.
+- ai_engineering_score: use the value in metrics["precomputed_score"] EXACTLY — do not
+  recalculate. The score is deterministically computed before this API call.
+- score_rationale: explain the score using the provided breakdown in metrics["score_breakdown"].
+- All other sub-scores: defensible from the metrics, not aspirational.
 """
 
 _GENERATION_PROMPT_TEMPLATE = """\

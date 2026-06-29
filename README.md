@@ -224,7 +224,7 @@ passport run --open
 
 ```bash
 # Full pipeline — extract + generate + open browser
-passport run [--days 90] [--open] [--no-codex] [--output profile.json]
+passport run [--days 90] [--open] [--qr] [--name "Your Name"] [--no-codex] [--output profile.json]
 
 # Extract only — no API call, no network
 passport extract [--days 90] [--output metrics.json]
@@ -236,7 +236,9 @@ passport generate --metrics metrics.json [--output profile.json]
 | Flag | Default | Description |
 |---|---|---|
 | `--days` | 90 | Days of session history to include |
-| `--open` | off | Open aipassport.web.app after generating |
+| `--open` | off | Open your passport in the browser after generating |
+| `--qr` | off | Generate an artistic QR card PNG (`passport_qr.png`) |
+| `--name` | — | Your name for the QR card footer |
 | `--no-codex` | off | Skip Codex CLI sessions |
 | `--output` | `profile.json` | Output file path |
 | `--verbose` | off | Print each session file as it is read |
@@ -245,14 +247,31 @@ passport generate --metrics metrics.json [--output profile.json]
 
 ## Viewing and Sharing
 
-Open [aipassport.web.app](https://aipassport.web.app) and drag your `profile.json` onto the page. Running `passport run --open` does this automatically.
+After running `passport run --open`, the CLI prints a shareable URL and opens it directly in your browser — no drag-and-drop required:
 
-From the review page:
+```
+AI Engineering Score: 87/100
+
+Your shareable passport URL:
+  https://aipassport.web.app/review#p=eyJtZXRhZGF0YS...
+
+QR card saved -> passport_qr.png
+```
+
+Anyone with that link can view your full passport instantly. The profile is encoded in the URL fragment — no server receives your data, no account required to view.
+
+**QR card** — run with `--qr` to generate a branded PNG card (`passport_qr.png`) suitable for resumes, business cards, and GitHub profiles. The QR encodes a compact mini-passport URL: scanning it opens a credential summary directly in the browser showing your score, sessions, badges, and specialties — no file upload needed.
+
+```bash
+passport run --open --qr --name "Your Name"
+```
+
+From the review page you can also:
 
 - **Share on X** — opens a pre-filled draft with your key metrics and a link to your passport
 - **Share on LinkedIn** — copies your post text to clipboard and opens LinkedIn
 - **Download PNG** — a 1080×1080 share card for any platform
-- **Copy profile link** — a self-contained URL encoding your full profile in the fragment; no server receives your data, no account required to view
+- **Copy profile link** — copies the shareable URL to clipboard
 
 ---
 

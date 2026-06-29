@@ -207,6 +207,29 @@ export function decodeProfileFromHash(hash: string): PassportProfile | null {
   } catch { return null }
 }
 
+// ── Minimal profile (QR format) ─────────────────────────────────────────────
+export interface MiniProfile {
+  v: number
+  s: number           // score
+  d: number           // days
+  n: number           // sessions
+  ce: number          // cache efficiency %
+  t: number           // avg turns/session
+  b: string[]         // badge IDs
+  sp: [string, number][]  // [domain, confidence]
+  mo: string[]        // models used
+  pr: number          // project count
+}
+
+export function decodeProfileFromMiniHash(hash: string): MiniProfile | null {
+  if (!hash.startsWith('#pmin=')) return null
+  try {
+    const b64 = hash.slice(6).replace(/-/g, '+').replace(/_/g, '/')
+    const json = decodeURIComponent(escape(atob(b64)))
+    return JSON.parse(json) as MiniProfile
+  } catch { return null }
+}
+
 export function composeLinkedInText(profile: PassportProfile, profileUrl?: string): string {
   const score  = profile.summary.ai_engineering_score
   const ve     = profile.verified_experience

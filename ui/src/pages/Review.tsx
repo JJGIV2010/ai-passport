@@ -7,7 +7,8 @@ import BadgeGrid from '../components/BadgeGrid'
 import SpecialtyCard from '../components/SpecialtyCard'
 import StrengthBar from '../components/StrengthBar'
 import ShareButtons from '../components/ShareButtons'
-import { decodeProfileFromHash } from '../utils/shareCard'
+import { decodeProfileFromHash, decodeProfileFromMiniHash, MiniProfile } from '../utils/shareCard'
+import MiniPassport from './MiniPassport'
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -43,16 +44,22 @@ function StatCard({ label, value }: { label: string; value: string | number }) {
 export default function Review() {
   const navigate = useNavigate()
   const [profile, setProfile] = useState<PassportProfile | null>(null)
+  const [miniProfile, setMiniProfile] = useState<MiniProfile | null>(null)
 
   useEffect(() => {
+    // QR code mini-profile format (#pmin=)
+    const fromMini = decodeProfileFromMiniHash(window.location.hash)
+    if (fromMini) { setMiniProfile(fromMini); return }
+
     const raw = sessionStorage.getItem('passport_profile')
     if (raw) { setProfile(JSON.parse(raw)); return }
-    // Shareable link: profile encoded in URL fragment
+    // Shareable link: full profile encoded in URL fragment (#p=)
     const fromHash = decodeProfileFromHash(window.location.hash)
     if (fromHash) { setProfile(fromHash); return }
     navigate('/')
   }, [navigate])
 
+  if (miniProfile) return <MiniPassport profile={miniProfile} />
   if (!profile) return null
 
   const {
