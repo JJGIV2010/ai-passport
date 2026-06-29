@@ -1,0 +1,34 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Firebase cache
+.firebase/
+
+# Internal design and research docs
+AI_CAPABILITY_PASSPORT_GTM.md
+kick_off_doc.md
+
+# Generated profile and metrics outputs (personal behavioral data)
+/profile.json
+/metrics.json
+/jjgiv_passport_v1.json
+
+# UI
+ui/node_modules/
+ui/dist/
+ui/.env
+ui/.env.local
+
+# IDE
+.idea/
+.vscode/
+*.iml

@@ -1,0 +1,16 @@
+{
+  "name": "ai-passport",
+  "version": "0.1.0",
+  "description": "Generate your AI Capability Passport from Claude Code and Codex sessions",
+  "keywords": ["ai", "claude", "passport", "capability", "metrics", "anthropic"],
+  "license": "MIT",
+  "bin": {
+    "ai-passport": "./bin/ai-passport.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "bin"
+  ]
+}

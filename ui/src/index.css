@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0a0912;
+    color: #ede9fe;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: rgba(124, 58, 237, 0.35);
+    color: #ede9fe;
+  }
+}
+
+@layer utilities {
+  .glow-ring {
+    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.6));
+  }
+  .glow-text {
+    text-shadow: 0 0 24px rgba(167, 139, 250, 0.5);
+  }
+  .glass-card {
+    background: rgba(16, 15, 30, 0.8);
+    backdrop-filter: blur(12px);
+  }
+}
+
+@keyframes blobFloat {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(18px, -22px) scale(1.04); }
+  66%      { transform: translate(-12px, 10px) scale(0.97); }
+}
+
+@keyframes spinCw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes spinCcw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+.blob { animation: blobFloat var(--blob-duration, 9s) ease-in-out infinite; }
+.spin-cw  { animation: spinCw  var(--spin-duration, 22s) linear infinite; }
+.spin-ccw { animation: spinCcw var(--spin-duration, 34s) linear infinite; }
