@@ -157,7 +157,7 @@ The npm shim checks for Python 3.10+, installs the `ai-passport` pip package on 
 
 **From source**
 ```bash
-git clone https://github.com/jjgiv/ai-passport
+git clone https://github.com/JJGIV2010/ai-passport
 cd ai-passport
 pip install -e .
 passport run --open
