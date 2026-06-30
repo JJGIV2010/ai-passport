@@ -56,7 +56,7 @@ export default function Review() {
     // Shareable link: full profile encoded in URL fragment (#p=)
     const fromHash = decodeProfileFromHash(window.location.hash)
     if (fromHash) { setProfile(fromHash); return }
-    navigate('/')
+    navigate('/upload')
   }, [navigate])
 
   if (miniProfile) return <MiniPassport profile={miniProfile} />
@@ -343,7 +343,7 @@ export default function Review() {
               Approve & Export
             </button>
             <button
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/upload')}
               className="px-8 py-3 rounded-xl text-sm font-medium text-passport-muted border
                 border-passport-border hover:border-passport-accent/40 transition-colors"
             >
